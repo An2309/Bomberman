@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Set up code Structure">
-      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/gui/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/gui/Info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/Bomberman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/Bomberman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/gui/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/input/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/input/Keyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/graphic/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/graphic/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/gui/Info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,14 +48,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Bomberman.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Bomberman.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/hoangluu/IdeaProjects/Bomberman/res/textures"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/textures" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
