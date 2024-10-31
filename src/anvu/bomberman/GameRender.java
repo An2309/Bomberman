@@ -31,6 +31,9 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
         gameScreen = new Screen(WIDTH, HEIGHT);
 
         boardRender = new BoardRender(this, gameScreen);
+
+        addMouseListener(this);
+        addMouseMotionListener(this);
     }
 
     public void renderScreen() {
@@ -51,16 +54,52 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
     }
 
     public void start() {
-        while (isMenu) {
-            renderScreen();
+        new Thread(() -> {
+            while (isMenu) {
+                renderScreen();
+                try {
+                    Thread.sleep(16); // Approximately 60 FPS
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        Rectangle playButton = new Rectangle(128, 278, 200, 60);
+        if (playButton.contains(e.getX(), e.getY()) && isMenu) {
+            System.out.println("Play");
+        }
+
+        Rectangle optionButton = new Rectangle(128, 390, 200, 60);
+        if (optionButton.contains(e.getX(), e.getY()) && isMenu) {
+            System.out.println("Option");
+        }
+
+        Rectangle aboutButton = new Rectangle(128, 498, 200, 60);
+        if (aboutButton.contains(e.getX(), e.getY()) && isMenu) {
+            System.out.println("About");
         }
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {}
+    public void mouseMoved(MouseEvent e) {
+        Rectangle playButton = new Rectangle(128, 278, 200, 60);
+        Rectangle optionButton = new Rectangle(128, 390, 200, 60);
+        Rectangle aboutButton = new Rectangle(128, 498, 200, 60);
 
-    @Override
-    public void mouseMoved(MouseEvent e) {}
+        if (isMenu) {
+            if (playButton.contains(e.getX(), e.getY())
+                    || optionButton.contains(e.getX(), e.getY())
+                    || aboutButton.contains(e.getX(), e.getY())) {
+                setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            } else {
+                setCursor(Cursor.getDefaultCursor());
+            }
+        }
+    }
 
     @Override
     public void mouseDragged(MouseEvent e) {}
