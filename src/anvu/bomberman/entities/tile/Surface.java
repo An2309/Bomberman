@@ -1,5 +1,6 @@
 package anvu.bomberman.entities.tile;
 
+
 import anvu.bomberman.entities.Entity;
 import anvu.bomberman.graphic.Sprite;
 

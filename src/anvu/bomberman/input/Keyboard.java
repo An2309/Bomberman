@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Keyboard implements KeyListener {
-    private boolean[] keys = new boolean[120];
+    private boolean[] keys = new boolean[120]; //120 is enough to this game
     public boolean up, down, left, right, space;
 
     public void update() {
@@ -22,10 +22,12 @@ public class Keyboard implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         keys[e.getKeyCode()] = true;
+
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         keys[e.getKeyCode()] = false;
+
     }
 }

@@ -1,5 +1,6 @@
 package anvu.bomberman.entities.tile;
 
+
 import anvu.bomberman.graphic.Sprite;
 
 public class Wall extends Tile {

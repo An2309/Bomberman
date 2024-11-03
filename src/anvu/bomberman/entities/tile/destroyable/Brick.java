@@ -1,5 +1,8 @@
 package anvu.bomberman.entities.tile.destroyable;
 
+import anvu.bomberman.entities.Entity;
+import anvu.bomberman.entities.bomb.DirectionalExplosion;
+import anvu.bomberman.entities.character.enemy.Kondoria;
 import anvu.bomberman.graphic.Screen;
 import anvu.bomberman.graphic.Sprite;
 import anvu.bomberman.level.Coordinates;
@@ -20,11 +23,20 @@ public class Brick extends Destroyable {
         int y = Coordinates.tileToPixel(this.y);
 
         if (isDestroyed) {
-            // TODO:
-//            sprite = movingSprite(brick_exploded, brick_exploded1, brick_exploded2);
-//            screen.renderEntityWithBelowSprite(x, y, this, _belowSprite);
+            sprite = movingSprite(brick_exploded, brick_exploded1, brick_exploded2);
+            screen.renderEntityWithBelowSprite(x, y, this, belowSprite);
         } else {
             screen.renderEntity(x, y, this);
         }
+    }
+
+    @Override
+    public boolean collide(Entity e) {
+        if (e instanceof DirectionalExplosion) {
+            destroy();
+            brickBreakAudio.playSound(0);
+        }
+
+        return e instanceof Kondoria;
     }
 }

@@ -1,5 +1,7 @@
 package anvu.bomberman.entities.tile.destroyable;
 
+import anvu.bomberman.entities.Entity;
+import anvu.bomberman.entities.bomb.DirectionalExplosion;
 import anvu.bomberman.entities.tile.Tile;
 import anvu.bomberman.graphic.Sprite;
 
@@ -7,12 +9,11 @@ public class Destroyable extends Tile {
     private int animate = 0;
     protected boolean isDestroyed = false;
     protected int timeToDisappear = 20;
-//    protected Sprite belowSprite = grass;
+    protected Sprite belowSprite = grass; //default
 
     public Destroyable(int x, int y, Sprite sprite) {
         super(x, y, sprite);
     }
-
 
     @Override
     public void update() {
@@ -30,19 +31,31 @@ public class Destroyable extends Tile {
         isDestroyed = true;
     }
 
+    @Override
+    public boolean collide(Entity e) {
+
+        if (e instanceof DirectionalExplosion)
+            destroy();
+
+        return false;
+    }
+
     public void addBelowSprite(Sprite sprite) {
-        // TODO:
-//        belowSprite = sprite;
+        belowSprite = sprite;
     }
 
     protected Sprite movingSprite(Sprite normal, Sprite x1, Sprite x2) {
         int calc = animate % 30;
+
         if (calc < 10) {
             return normal;
         }
+
         if (calc < 20) {
             return x1;
         }
+
         return x2;
     }
+
 }

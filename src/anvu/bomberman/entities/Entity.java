@@ -4,6 +4,7 @@ import anvu.bomberman.CommonVariables;
 import anvu.bomberman.graphic.IRender;
 import anvu.bomberman.graphic.Screen;
 import anvu.bomberman.graphic.Sprite;
+import anvu.bomberman.level.Coordinates;
 
 public abstract class Entity implements IRender, CommonVariables {
     protected double x, y;
@@ -38,11 +39,11 @@ public abstract class Entity implements IRender, CommonVariables {
         return y;
     }
 
-//    public int getXTile() {
-//        return Coordinates.pixelToTile(_x + _sprite.SIZE / 2); //plus half block for precision
-//    }
-//
-//    public int getYTile() {
-//        return Coordinates.pixelToTile(_y - _sprite.SIZE / 2); //plus half block
-//    }
+    public int getXTile() {
+        return Coordinates.pixelToTile(x + sprite.SIZE / 2);
+    }
+
+    public int getYTile() {
+        return Coordinates.pixelToTile(y - sprite.SIZE / 2);
+    }
 }

@@ -1,5 +1,6 @@
 package anvu.bomberman.entities;
 
+
 public abstract class AnimatedEntity extends Entity {
     protected int animate = 0;
 

@@ -1,21 +1,22 @@
 package anvu.bomberman.gui;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.JPanel;
+
 import anvu.bomberman.GameRender;
 
-import javax.swing.JPanel;
-import java.awt.Dimension;
-import java.awt.BorderLayout;
+public class GamePanel extends JPanel {
 
-public class Game extends JPanel {
-    private GameRender gameRender;
+    private GameRender _gameRender;
 
-    public Game(Frame frame) {
+    public GamePanel(Frame frame) {
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(GameRender.WIDTH * GameRender.SCALE, GameRender.HEIGHT * GameRender.SCALE));
 
-        gameRender = new GameRender(frame);
-        add(gameRender);
-        gameRender.setVisible(true);
+        _gameRender = new GameRender(frame);
+        add(_gameRender);
+        _gameRender.setVisible(true);
 
         setVisible(true);
         setFocusable(true);
@@ -27,7 +28,8 @@ public class Game extends JPanel {
         repaint();
     }
 
-    public GameRender getGameRender() {
-        return gameRender;
+    public GameRender getGame() {
+        return _gameRender;
     }
+
 }
