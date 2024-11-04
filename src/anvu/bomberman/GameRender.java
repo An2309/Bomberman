@@ -16,32 +16,31 @@ import anvu.bomberman.gui.Frame;
 import anvu.bomberman.input.Keyboard;
 
 public class GameRender extends Canvas implements MouseListener, MouseMotionListener, CommonVariables {
-    public static final double VERSION = 1.9;
     public static final int TILES_SIZE = 16,
             WIDTH = TILES_SIZE * (int) (31 / 2), //minus one to ajust the window,
             HEIGHT = 13 * TILES_SIZE;
 
     public static int highScore = 0;
 
-    protected static int bombRate = BOMBRATE;
-    protected static int bombRadius = BOMBRADIUS;
-    protected static double playerSpeed = PLAYERSPEED;
+    protected static int bombRate = BOMB_RATE;
+    protected static int bombRadius = BOMB_RADIUS;
+    protected static double playerSpeed = PLAYER_SPEED;
 
-    protected int _screenDelay = SCREENDELAY;
+    protected int screenDelay = SCREEN_DELAY;
 
-    private final Keyboard _input;
-    private boolean _running = false;
-    private boolean _menu = true;
-    private boolean _paused = true;
+    private final Keyboard input;
+    private boolean isRunning = false;
+    private boolean isMenu = true;
+    private boolean isPaused = true;
     private boolean isSetting = false;
     private boolean isAboutPane = false;
     public boolean isEndgame = false;
     public boolean isResetGame = false;
     private boolean isClickChangeMap = false;
 
-    private final BoardRender _boardRender;
+    private final BoardRender boardRender;
     private final Screen screen;
-    private final Frame _frame;
+    private final Frame frame;
 
     private final CodePanel codePanel;
 
@@ -50,15 +49,13 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
     private final int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
     public GameRender(Frame frame) {
-        _frame = frame;
-        _frame.setTitle(TITLE);
-
+        this.frame = frame;
+        frame.setTitle(TITLE);
         screen = new Screen(WIDTH, HEIGHT);
-        _input = new Keyboard();
-
-        _boardRender = new BoardRender(this, _input, screen);
-        codePanel = new CodePanel(_frame);
-        addKeyListener(_input);
+        input = new Keyboard();
+        boardRender = new BoardRender(this, input, screen);
+        codePanel = new CodePanel(frame);
+        addKeyListener(input);
         addMouseListener(this);
         addMouseMotionListener(this);
     }
@@ -66,24 +63,19 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
 
     private void renderGame() { //render will run the maximum times it can per second
         BufferStrategy bs = getBufferStrategy(); //create a buffer to store images using canvas
-        if (bs == null) { //if canvas don't have a bufferstrategy, create it
-            createBufferStrategy(3); //triple buffer
+        if (bs == null) {
+            createBufferStrategy(3);
             return;
         }
-
         screen.clear();
-
-        _boardRender.render(screen);
-
+        boardRender.render(screen);
         for (int i = 0; i < pixels.length; i++) { //create the image to be rendered
             pixels[i] = screen.pixels[i];
         }
 
         Graphics g = bs.getDrawGraphics();
-
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-        _boardRender.renderMessages(g);
-
+        boardRender.renderMessages(g);
         g.dispose(); //release resources
         bs.show(); //make next buffer visible
     }
@@ -94,106 +86,71 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
             createBufferStrategy(3);
             return;
         }
-
         screen.clear();
-
         Graphics g = bs.getDrawGraphics();
-
-        _boardRender.drawScreen(g);
-
+        boardRender.drawScreen(g);
         g.dispose();
         bs.show();
     }
 
     private void update() {
-        _input.update();
-        _boardRender.update();
+        input.update();
+        boardRender.update();
     }
 
     public void start() {
-        readHighscore();
-        /*
-        JWindow window = new JWindow();
-        window.getContentPane().add(
-                new JLabel("", new ImageIcon("res/textures/intro.gif"), SwingConstants.CENTER));
-        window.setBounds(600, 215, 720, 600);
-        window.setVisible(true);
-        try {
-            Thread.sleep(4900);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        window.setVisible(false);
-        window.dispose();
-         */
+        readHighScore();
         mainAudio.playSound(100);
-        while (_menu) {
+        while (isMenu) {
             renderScreen();
         }
-
-        _boardRender.changeLevel(1);
-
-
+        boardRender.changeLevel(1);
         long lastTime = System.nanoTime();
         long timer = System.currentTimeMillis();
         final double ns = 1000000000.0 / 60.0; // nanosecond, 60 frames per second
         double delta = 0;
-        int frames = 0;
-        int updates = 0;
         requestFocus();
 
-        while (_running) {
+        while (isRunning) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
             while (delta >= 1) {
                 update();
-                updates++;
                 delta--;
             }
-
-            if (!_paused) {
-                _frame.get_infopanel().setVisible(true);
+            if (!isPaused) {
+                frame.getInfoPanel().setVisible(true);
             } else {
-                _frame.get_infopanel().setVisible(isSetting || isEndgame || isResetGame);
+                frame.getInfoPanel().setVisible(isSetting || isEndgame || isResetGame);
             }
-
-            if (_paused) {
-                if (_screenDelay <= 0) {
-                    _boardRender.setShow(5);
-                    _paused = false;
+            if (isPaused) {
+                if (screenDelay <= 0) {
+                    boardRender.setShow(5);
+                    isPaused = false;
                 }
                 renderScreen();
             } else {
                 renderGame();
             }
-
-
-            frames++;
             if (System.currentTimeMillis() - timer > 1000) {
-                _frame.setTime(_boardRender.subtractTime());
-                _frame.setLives(_boardRender.getLives());
-                _frame.setPoints(_boardRender.getPoints());
+                frame.setTime(boardRender.subtractTime());
+                frame.setLives(boardRender.getLives());
+                frame.setPoints(boardRender.getPoints());
                 timer += 1000;
-                _frame.setTitle(TITLE);
-                updates = 0;
-                frames = 0;
-
-                if (_boardRender.getShow() == 2)
-                    --_screenDelay;
+                frame.setTitle(TITLE);
+                if (boardRender.getShow() == 2)
+                    --screenDelay;
             }
         }
     }
 
-    public void readHighscore() {
+    public void readHighScore() {
         BufferedReader read;
         try {
             read = new BufferedReader(new FileReader(new File("res/data/BestScore.txt")));
             String score = read.readLine().trim();
-            if (score == null)
-                highScore = 0;
-            else
-                highScore = Integer.parseInt(score);
+            highScore = Integer.parseInt(score);
             read.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -215,32 +172,28 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
     @Override
     public void mouseClicked(MouseEvent e) {
         Rectangle playButton = new Rectangle(GameRender.WIDTH + 50, GameRender.HEIGHT + 130, 150, 50);
-        if (playButton.contains(e.getX(), e.getY()) && _menu) {
-            _menu = false;
-            _running = true;
+        if (playButton.contains(e.getX(), e.getY()) && isMenu) {
+            isMenu = false;
+            isRunning = true;
         }
-
         Rectangle optionButton = new Rectangle(GameRender.WIDTH + 50, GameRender.HEIGHT + 210, 150, 50);
-        if (optionButton.contains(e.getX(), e.getY()) && _menu && !isSetting) {
+        if (optionButton.contains(e.getX(), e.getY()) && isMenu && !isSetting) {
             isSetting = true;
             getBoard().setShow(5);
         }
-
         Rectangle aboutButton = new Rectangle(GameRender.WIDTH + 50, GameRender.HEIGHT + 280, 150, 50);
-        if (aboutButton.contains(e.getX(), e.getY()) && _menu) {
+        if (aboutButton.contains(e.getX(), e.getY()) && isMenu) {
             isAboutPane = true;
             getBoard().setShow(6);
         }
-
         Rectangle exitAboutButton = new Rectangle(GameRender.WIDTH + 370, GameRender.HEIGHT - 100, 60, 60);
         if (exitAboutButton.contains(e.getX(), e.getY()) && isAboutPane) {
             isAboutPane = false;
             getBoard().setShow(4);
         }
-
         Rectangle exitSettingButton = new Rectangle(GameRender.WIDTH + 300, GameRender.HEIGHT - 60, 50, 50);
-        if (exitSettingButton.contains(e.getX(), e.getY()) && (_paused || isSetting)) {
-            if (_menu) {
+        if (exitSettingButton.contains(e.getX(), e.getY()) && (isPaused || isSetting)) {
+            if (isMenu) {
                 isSetting = false;
                 getBoard().setShow(4);
             } else {
@@ -251,21 +204,19 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
                 if(screen.isBasicMap){
                     map.modifySpriteSheet("/textures/miramar.png", 64);
                     changeMap();
-                    _frame.get_infopanel().changeBackground(desertColor);
+                    frame.getInfoPanel().changeBackground(desertColor);
                     screen.isBasicMap = false;
                 }else{
                     map.modifySpriteSheet("/textures/erangel.png", 64);
                     changeMap();
-                    _frame.get_infopanel().changeBackground(basicColor);
+                    frame.getInfoPanel().changeBackground(basicColor);
                     screen.isBasicMap = true;
                 }
                 isClickChangeMap = false;
             }
         }
-
         Rectangle changeMapButton = new Rectangle(GameRender.WIDTH + 270, GameRender.HEIGHT + 40, 30, 30);
         Rectangle changeMapButton_1 = new Rectangle(GameRender.WIDTH + 70, GameRender.HEIGHT + 40, 30, 30);
-
         if (changeMapButton.contains(e.getX(), e.getY()) && isSetting) {
             isClickChangeMap = true;
             if (screen.isBasicMap) {
@@ -276,7 +227,6 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
                 screen.isBasicMap = true;
             }
         }
-
         if (changeMapButton_1.contains(e.getX(), e.getY()) && isSetting) {
             isClickChangeMap = true;
             if (screen.isBasicMap) {
@@ -287,15 +237,13 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
                 screen.isBasicMap = true;
             }
         }
-
         Rectangle codeButton = new Rectangle(GameRender.WIDTH - 60, GameRender.HEIGHT + 140, 120, 50);
         if (codeButton.contains(e.getX(), e.getY()) && isSetting) {
             codePanel.setVisible(true);
         }
-
         Rectangle okButton = new Rectangle(GameRender.WIDTH + 90, GameRender.HEIGHT + 240, 100, 50);
         if (okButton.contains(e.getX(), e.getY()) && (isSetting)) {
-            if (_menu) {
+            if (isMenu) {
                 isSetting = false;
                 getBoard().setShow(4);
             } else {
@@ -303,29 +251,26 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
                 getBoard().gameResume();
             }
             if (screen.isBasicMap) {
-                _frame.get_infopanel().changeBackground(basicColor);
+                frame.getInfoPanel().changeBackground(basicColor);
                 changeMap();
             } else {
                 changeMap();
-                _frame.get_infopanel().changeBackground(desertColor);
+                frame.getInfoPanel().changeBackground(desertColor);
             }
         }
-
         Rectangle confirmNewGame = new Rectangle(GameRender.WIDTH + 150, GameRender.HEIGHT + 100, 100, 40);
         if (confirmNewGame.contains(e.getX(), e.getY()) && isResetGame) {
             getBoard().newGame();
             isResetGame = false;
         }
-
         Rectangle exitNewGame = new Rectangle(GameRender.WIDTH - 10, GameRender.HEIGHT + 100, 100, 40);
         if(exitNewGame.contains(e.getX(), e.getY()) && isResetGame){
             getBoard().gameResume();
             isResetGame = false;
         }
-
         Rectangle replayButton = new Rectangle(GameRender.WIDTH + 50, GameRender.HEIGHT + 170, 150, 50);
         if (replayButton.contains(e.getX(), e.getY()) && isEndgame) {
-            _boardRender.newGame();
+            boardRender.newGame();
             isEndgame = false;
         }
     }
@@ -335,8 +280,7 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
         Rectangle playButton = new Rectangle(GameRender.WIDTH + 50, GameRender.HEIGHT + 130, 150, 50);
         Rectangle optionButton = new Rectangle(GameRender.WIDTH + 50, GameRender.HEIGHT + 210, 150, 50);
         Rectangle aboutButton = new Rectangle(GameRender.WIDTH + 50, GameRender.HEIGHT + 280, 150, 50);
-
-        if (_menu && !isSetting && !isAboutPane) {
+        if (isMenu && !isSetting && !isAboutPane) {
             if (playButton.contains(e.getX(), e.getY())
                     || optionButton.contains(e.getX(), e.getY())
                     || aboutButton.contains(e.getX(), e.getY())) {
@@ -345,7 +289,6 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
                 setCursor(Cursor.getDefaultCursor());
             }
         }
-
         Rectangle exitAbout = new Rectangle(GameRender.WIDTH + 370, GameRender.HEIGHT - 100, 60, 60);
         if (isAboutPane) {
             if (exitAbout.contains(e.getX(), e.getY())) {
@@ -354,14 +297,11 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
                 setCursor(Cursor.getDefaultCursor());
             }
         }
-
-
         Rectangle exitSettingButton = new Rectangle(GameRender.WIDTH + 300, GameRender.HEIGHT - 60, 50, 50);
         Rectangle changeMapButton = new Rectangle(GameRender.WIDTH + 270, GameRender.HEIGHT + 40, 30, 30);
         Rectangle changeMapButton_1 = new Rectangle(GameRender.WIDTH + 70, GameRender.HEIGHT + 40, 30, 30);
         Rectangle okButton = new Rectangle(GameRender.WIDTH + 90, GameRender.HEIGHT + 240, 100, 50);
         Rectangle codeButton = new Rectangle(GameRender.WIDTH - 60, GameRender.HEIGHT + 140, 120, 50);
-
         if (isSetting) {
             if (exitSettingButton.contains(e.getX(), e.getY())
                     || changeMapButton.contains(e.getX(), e.getY())
@@ -372,7 +312,7 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
             } else {
                 setCursor(Cursor.getDefaultCursor());
             }
-            if (_menu) {
+            if (isMenu) {
                 if (exitSettingButton.contains(e.getX(), e.getY())
                         || changeMapButton.contains(e.getX(), e.getY())
                         || changeMapButton_1.contains(e.getX(), e.getY())
@@ -402,8 +342,7 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
                 setCursor(Cursor.getDefaultCursor());
             }
         }
-
-        if (!_menu && !isSetting && !isEndgame && !isResetGame) {
+        if (!isMenu && !isSetting && !isEndgame && !isResetGame) {
             setCursor(Cursor.getDefaultCursor());
         }
     }
@@ -429,11 +368,7 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
     public void mouseExited(MouseEvent e) {
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Getters & Setters
-    |--------------------------------------------------------------------------
-     */
+    // Getters & Setters
     public static double getPlayerSpeed() {
         return playerSpeed;
     }
@@ -458,54 +393,29 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
         bombRate += i;
     }
 
-    //screen delay
-    public int getScreenDelay() {
-        return _screenDelay;
-    }
-
-    public void decreaseScreenDelay() {
-        _screenDelay--;
-    }
-
     public void resetScreenDelay() {
-        _screenDelay = SCREENDELAY;
-    }
-
-    public Keyboard getInput() {
-        return _input;
+        screenDelay = SCREEN_DELAY;
     }
 
     public BoardRender getBoard() {
-        return _boardRender;
-    }
-
-    public Frame getFrame() {
-        return _frame;
+        return boardRender;
     }
 
     public void run() {
-        _running = true;
-        _paused = false;
+        isRunning = true;
+        isPaused = false;
     }
 
     public boolean getMenu() {
-        return _menu;
-    }
-
-    public void stop() {
-        _running = false;
-    }
-
-    public boolean isRunning() {
-        return _running;
+        return isMenu;
     }
 
     public boolean isPaused() {
-        return _paused;
+        return isPaused;
     }
 
     public void pause() {
-        _paused = true;
+        isPaused = true;
     }
 
     public void setSetting(boolean _isSetting) {
@@ -532,17 +442,14 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
         portal.changeSheet(map);
         bunker.changeSheet(map);
         grass.changeSheet(map);
-
         brick.changeSheet(map);
         brick_exploded.changeSheet(map);
         brick_exploded1.changeSheet(map);
         brick_exploded2.changeSheet(map);
-
         wall_top.changeSheet(map);
         wall_left.changeSheet(map);
         wall_right.changeSheet(map);
         wall_down.changeSheet(map);
-
         wall_corner0.changeSheet(map);
         wall_corner1.changeSheet(map);
         wall_corner2.changeSheet(map);

@@ -4,60 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Add entities">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/about-table.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/bomb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/center-bar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/character.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/enemy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/erangel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/intro.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/item.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/left-bar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/miramar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/mute.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/new-game.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/options-table.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/options.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/reset.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/right-bar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/score-table.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/sound.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/bomb/Bomb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/bomb/DirectionalExplosion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/bomb/Explosion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/Character.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/Player.java" afterDir="false" />
+    <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Add play game">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/Bomberman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/Bomberman.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/CommonVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/CommonVariables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/audio/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/audio/Audio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/AnimatedEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/AnimatedEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/LayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/LayerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/Portal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/Surface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/Wall.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/destroyable/Brick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/destroyable/Destroyable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/graphic/IRender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/graphic/Screen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/graphic/Sprite.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/graphic/SpriteSheet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/CodePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/gui/CodePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/gui/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/Info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/gui/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/gui/Info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/input/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/input/Keyboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/level/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/level/Coordinates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/level/FileLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/level/FileLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/level/ILevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/level/ILevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/level/Level.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,13 +122,22 @@
       <option name="project" value="LOCAL" />
       <updated>1730393870404</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add play game">
+      <option name="closed" value="true" />
+      <created>1730618248343</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730618248343</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Set up code Structure" />
     <MESSAGE value="Render Menu Screen" />
     <MESSAGE value="Add entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add entities" />
+    <MESSAGE value="Add play game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add play game" />
   </component>
 </project>

@@ -9,22 +9,8 @@ import anvu.bomberman.CommonVariables;
 import anvu.bomberman.GameRender;
 
 public class Info extends JPanel implements CommonVariables {
-    private JLabel emptyLabel_1;
-    private JLabel emptyLabel_2;
-    private JLabel emptyLabel_3;
-    private JLabel emptyLabel_4;
-
-    private JLabel timeLabel;
-    private JLabel pointsLabel;
-    private JLabel livesLabel;
-    private JLabel soundLabel;
-    private JLabel settingLabel;
-    private JLabel resetLabel;
-
-    private JButton settingButton;
-    private JButton soundButton;
-    private JButton resetButton;
-
+    private JLabel emptyLabel_1, emptyLabel_2, timeLabel, pointsLabel, livesLabel, soundLabel, settingLabel, resetLabel;
+    private JButton settingButton, soundButton, resetButton;
     private ImageIcon left_bar = new ImageIcon((new ImageIcon("res/textures/left-bar.png")).getImage().getScaledInstance(80, 30, Image.SCALE_DEFAULT));
     private ImageIcon center_bar = new ImageIcon((new ImageIcon("res/textures/center-bar.png")).getImage().getScaledInstance(80, 30, Image.SCALE_DEFAULT));
     private ImageIcon right_bar = new ImageIcon((new ImageIcon("res/textures/right-bar.png")).getImage().getScaledInstance(80, 30, Image.SCALE_DEFAULT));
@@ -38,8 +24,6 @@ public class Info extends JPanel implements CommonVariables {
 
         emptyLabel_1 = new JLabel();
         emptyLabel_2 = new JLabel();
-        emptyLabel_3 = new JLabel();
-        emptyLabel_4 = new JLabel();
 
         timeLabel = new JLabel();
         timeLabel.setIcon(left_bar);
@@ -132,7 +116,7 @@ public class Info extends JPanel implements CommonVariables {
         add(timeLabel);
         add(pointsLabel);
         add(livesLabel);
-        add(emptyLabel_4);
+        add(emptyLabel_2);
         add(soundLabel);
         add(settingLabel);
 

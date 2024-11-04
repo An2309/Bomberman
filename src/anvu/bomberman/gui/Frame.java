@@ -7,86 +7,56 @@ import javax.swing.JPanel;
 
 import anvu.bomberman.GameRender;
 
-
 public class Frame extends JFrame {
-
-    public GamePanel _gamepane;
-    private JPanel _containerpane;
-    private Info _infopanel;
-    private GameRender _gameRender;
+    public GamePanel gamePanel;
+    private final Info infoPanel;
+    private final GameRender gameRender;
 
     public Frame() {
-        _containerpane = new JPanel(new BorderLayout());
-        _gamepane = new GamePanel(this);
-        _infopanel = new Info(_gamepane.getGame());
+        JPanel containerPanel = new JPanel(new BorderLayout());
+        gamePanel = new GamePanel(this);
+        infoPanel = new Info(gamePanel.getGame());
+        containerPanel.add(infoPanel, BorderLayout.NORTH);
+        containerPanel.add(gamePanel, BorderLayout.CENTER);
+        gameRender = gamePanel.getGame();
+        infoPanel.setVisible(false);
 
-        _containerpane.add(_infopanel, BorderLayout.NORTH);
-        _containerpane.add(_gamepane, BorderLayout.CENTER);
-
-        _gameRender = _gamepane.getGame();
-        _infopanel.setVisible(false);
-
-        add(_containerpane);
+        add(containerPanel);
 
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-        _gameRender.start();
+        gameRender.start();
     }
 
-	/*
-	|--------------------------------------------------------------------------
-	| Game Related
-	|--------------------------------------------------------------------------
-	 */
-
-    public Info get_infopanel() {
-        return _infopanel;
-    }
-
-    public void newGame() {
-        _gameRender.getBoard().newGame();
-    }
-
-    public void changeLevel(int i) {
-        _gameRender.getBoard().changeLevel(i);
-    }
-
-    public void pauseGame() {
-        _gameRender.getBoard().gamePauseOnSetting();
-    }
-
-    public void resumeGame() {
-        _gameRender.getBoard().gameResume();
-    }
-
-    public boolean isRunning() {
-        return _gameRender.isRunning();
+    // Game Related
+    public Info getInfoPanel() {
+        return infoPanel;
     }
 
     public void setTime(int time) {
-        _infopanel.setTime(time);
+        infoPanel.setTime(time);
     }
 
     public void setLives(int lives) {
-        _infopanel.setLives(lives);
+        infoPanel.setLives(lives);
     }
 
     public void setPoints(int points) {
-        _infopanel.setPoints(points);
+        infoPanel.setPoints(points);
     }
 
     public boolean validCode(String str) {
-        if (_gamepane.getGame().getMenu()) {
+        if (gamePanel.getGame().getMenu()) {
             return false;
         }
-        return _gameRender.getBoard().getLevel().validCode(str) != -1;
+        return gameRender.getBoard().getLevel().validCode(str) != -1;
     }
 
     public void changeLevelByCode(String str) {
-        _gameRender.getBoard().changeLevelByCode(str);
+        gameRender.getBoard().changeLevelByCode(str);
     }
 
 }

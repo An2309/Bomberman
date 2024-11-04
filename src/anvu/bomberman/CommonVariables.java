@@ -10,15 +10,15 @@ public interface CommonVariables {
     String TITLE = "Bomberman";
     int SCALE = 3;
 
-    int BOMBRATE = 1;
-    int BOMBRADIUS = 1;
-    double PLAYERSPEED = 0.9;
+    int BOMB_RATE = 1;
+    int BOMB_RADIUS = 1;
+    double PLAYER_SPEED = 0.9;
 
     int TIME = 200;
     int POINTS = 0;
     int LIVES = 3;
 
-    int SCREENDELAY = 2;
+    int SCREEN_DELAY = 2;
 
     int MAP_WIDTH = 31;
     int MAP_HEIGHT = 13;
@@ -39,8 +39,6 @@ public interface CommonVariables {
     SpriteSheet bomb = new SpriteSheet("/textures/bomb.png", 64);
     SpriteSheet item = new SpriteSheet("/textures/item.png", 64);
     SpriteSheet enemy = new SpriteSheet("/textures/enemy.png", 128);
-    SpriteSheet map0 = new SpriteSheet("/textures/erangel.png", 64);
-    SpriteSheet map1 = new SpriteSheet("/textures/miramar.png", 64);
     SpriteSheet map = new SpriteSheet("/textures/erangel.png", 64);
 
     Sprite portal = new Sprite(16, 0, 0, SpriteSheet.map, 14, 14);

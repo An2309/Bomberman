@@ -69,39 +69,39 @@ public class FileLevel extends Level implements CommonVariables {
         switch (c) {
             // Map
             case '6': // Top-left corner
-                boardRender.addEntitie(pos, new Wall(x, y, wall_corner0));
+                boardRender.addEntity(pos, new Wall(x, y, wall_corner0));
                 break;
             case '7': // Top-right corner
-                boardRender.addEntitie(pos, new Wall(x, y, wall_corner1));
+                boardRender.addEntity(pos, new Wall(x, y, wall_corner1));
                 break;
             case '8': // Bottom-right corner
-                boardRender.addEntitie(pos, new Wall(x, y, wall_corner2));
+                boardRender.addEntity(pos, new Wall(x, y, wall_corner2));
                 break;
             case '9': // Bottom-left corner
-                boardRender.addEntitie(pos, new Wall(x, y, wall_corner3));
+                boardRender.addEntity(pos, new Wall(x, y, wall_corner3));
                 break;
             case 'T': // Top border
-                boardRender.addEntitie(pos, new Wall(x, y, wall_top));
+                boardRender.addEntity(pos, new Wall(x, y, wall_top));
                 break;
             case 'L': // Left border
-                boardRender.addEntitie(pos, new Wall(x, y, wall_left));
+                boardRender.addEntity(pos, new Wall(x, y, wall_left));
                 break;
             case 'R': // Right border
-                boardRender.addEntitie(pos, new Wall(x, y, wall_right));
+                boardRender.addEntity(pos, new Wall(x, y, wall_right));
                 break;
             case 'D': // Bottom border
-                boardRender.addEntitie(pos, new Wall(x, y, wall_down));
+                boardRender.addEntity(pos, new Wall(x, y, wall_down));
                 break;
             case '#': // Wall
-                boardRender.addEntitie(pos, new Wall(x, y, bunker));
+                boardRender.addEntity(pos, new Wall(x, y, bunker));
                 break;
             case '*': // Brick wall
-                boardRender.addEntitie(pos, new LayerEntity(x, y,
+                boardRender.addEntity(pos, new LayerEntity(x, y,
                         new Surface(x, y, grass),
                         new Brick(x, y, brick)));
                 break;
             case 'P': // Port
-                boardRender.addEntitie(pos, new LayerEntity(x, y,
+                boardRender.addEntity(pos, new LayerEntity(x, y,
                         new Surface(x, y, grass),
                         new Portal(x, y, boardRender, portal),
                         new Brick(x, y, brick)));
@@ -110,7 +110,7 @@ public class FileLevel extends Level implements CommonVariables {
                 matrix[y][x] = 1;
                 boardRender.addMob(new Player(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + GameRender.TILES_SIZE, boardRender));
                 Screen.setOffset(0, 0);
-                boardRender.addEntitie(pos, new Surface(x, y, grass));
+                boardRender.addEntity(pos, new Surface(x, y, grass));
                 break;
 
             // Items
@@ -118,60 +118,60 @@ public class FileLevel extends Level implements CommonVariables {
                 LayerEntity layer = new LayerEntity(x, y,
                         new Surface(x, y, grass),
                         new Brick(x, y, brick));
-                if (!boardRender.isPowerupUsed(x, y, level)) {
+                if (boardRender.isPowerUsed(x, y, level)) {
                     layer.addBeforeTop(new PowerBombs(x, y, level, Sprite.power_bombs));
                 }
-                boardRender.addEntitie(pos, layer);
+                boardRender.addEntity(pos, layer);
                 break;
             case 'S':
                 layer = new LayerEntity(x, y,
                         new Surface(x, y, grass),
                         new Brick(x, y, brick));
-                if (!boardRender.isPowerupUsed(x, y, level)) {
+                if (boardRender.isPowerUsed(x, y, level)) {
                     layer.addBeforeTop(new PowerSpeed(x, y, level, Sprite.power_speed));
                 }
-                boardRender.addEntitie(pos, layer);
+                boardRender.addEntity(pos, layer);
                 break;
             case 'F':
                 layer = new LayerEntity(x, y,
                         new Surface(x, y, grass),
                         new Brick(x, y, brick));
-                if (!boardRender.isPowerupUsed(x, y, level)) {
+                if (boardRender.isPowerUsed(x, y, level)) {
                     layer.addBeforeTop(new PowerFlames(x, y, level, Sprite.power_flames));
                 }
-                boardRender.addEntitie(pos, layer);
+                boardRender.addEntity(pos, layer);
                 break;
 
             // Enemies
             case '1':
                 matrix[y][x] = 1;
                 boardRender.addMob(new Balloom(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + GameRender.TILES_SIZE, boardRender));
-                boardRender.addEntitie(pos, new Surface(x, y, grass));
+                boardRender.addEntity(pos, new Surface(x, y, grass));
                 break;
             case '2':
                 matrix[y][x] = 1;
                 boardRender.addMob(new Oneal(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + GameRender.TILES_SIZE, boardRender));
-                boardRender.addEntitie(pos, new Surface(x, y, grass));
+                boardRender.addEntity(pos, new Surface(x, y, grass));
                 break;
             case '3':
                 matrix[y][x] = 1;
                 boardRender.addMob(new Doll(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + GameRender.TILES_SIZE, boardRender));
-                boardRender.addEntitie(pos, new Surface(x, y, grass));
+                boardRender.addEntity(pos, new Surface(x, y, grass));
                 break;
             case '4':
                 matrix[y][x] = 1;
                 boardRender.addMob(new Minvo(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + GameRender.TILES_SIZE, boardRender));
-                boardRender.addEntitie(pos, new Surface(x, y, grass));
+                boardRender.addEntity(pos, new Surface(x, y, grass));
                 break;
             case '5':
                 matrix[y][x] = 1;
                 boardRender.addMob(new Kondoria(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + GameRender.TILES_SIZE, boardRender));
-                boardRender.addEntitie(pos, new Surface(x, y, grass));
+                boardRender.addEntity(pos, new Surface(x, y, grass));
                 break;
 
             default: // Surface
                 matrix[y][x] = 1;
-                boardRender.addEntitie(pos, new Surface(x, y, grass));
+                boardRender.addEntity(pos, new Surface(x, y, grass));
                 break;
         }
     }
