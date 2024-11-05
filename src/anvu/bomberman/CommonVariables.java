@@ -39,7 +39,7 @@ public interface CommonVariables {
     SpriteSheet bomb = new SpriteSheet("/textures/bomb.png", 64);
     SpriteSheet item = new SpriteSheet("/textures/item.png", 64);
     SpriteSheet enemy = new SpriteSheet("/textures/enemy.png", 128);
-    SpriteSheet map = new SpriteSheet("/textures/erangel.png", 64);
+    SpriteSheet map = new SpriteSheet("/textures/grass.png", 64);
 
     Sprite portal = new Sprite(16, 0, 0, SpriteSheet.map, 14, 14);
     Sprite bunker = new Sprite(16, 1, 0, SpriteSheet.map, 16, 16);

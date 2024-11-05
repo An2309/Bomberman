@@ -158,7 +158,6 @@ public class BoardRender implements IRender {
             if (!(mob instanceof Player))
                 ++total;
         }
-
         return total == 0;
     }
 

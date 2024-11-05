@@ -175,9 +175,9 @@ public class Screen implements CommonVariables {
         drawCenteredImage(settingFixed, targetWidth, targetHeight, getRealWidth(), getRealHeight(), g);
 
         if (isBasicMap) {
-            g.drawString("Erangel", GameRender.WIDTH + 140, GameRender.HEIGHT + 65);
+            g.drawString("Grass", GameRender.WIDTH + 140, GameRender.HEIGHT + 65);
         } else {
-            g.drawString("Miramar", GameRender.WIDTH + 140, GameRender.HEIGHT + 65);
+            g.drawString("Sand", GameRender.WIDTH + 140, GameRender.HEIGHT + 65);
         }
     }
 
