@@ -31,7 +31,7 @@ public class BoardRender implements IRender {
     protected List<Bomb> bombs = new ArrayList<>();
     private final List<Message> messages = new ArrayList<>();
 
-    private int screenToShow = -1; //1:endgame, 2:changelevel, 3:paused
+    private int screenToShow = -1;
 
     private int time = GameRender.TIME;
     private int points = GameRender.POINTS;

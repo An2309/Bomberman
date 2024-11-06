@@ -106,6 +106,7 @@ public class Bomb extends AnimatedEntity {
             if (!(diffX >= -13 && diffX < 16 && diffY >= 1 && diffY <= 30)) {
                 allowedToPassThrough = false;
             }
+
             return allowedToPassThrough;
         }
         if (e instanceof DirectionalExplosion) {

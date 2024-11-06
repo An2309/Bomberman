@@ -4,23 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Format code">
+    <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Update option modal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/center-bar.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/center-bar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/erangel.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/grass.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/intro.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/left-bar.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/left-bar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/miramar.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/sand.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/mute.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/mute.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/textures/about-table.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/about-table.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/textures/new-game.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/new-game.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/res/textures/options-table.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/options-table.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/options.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/options.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/reset.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/reset.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/right-bar.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/right-bar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/sound.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/sound.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/textures/pause.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/pause.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/textures/sand.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/sand.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/textures/score-table.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/score-table.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/CommonVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/CommonVariables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/graphic/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/graphic/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/bomb/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/destroyable/Destroyable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/destroyable/Destroyable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730713369620</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update option modal">
+      <option name="closed" value="true" />
+      <created>1730803536860</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730803536860</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -153,6 +158,27 @@
     <MESSAGE value="Add entities" />
     <MESSAGE value="Add play game" />
     <MESSAGE value="Format code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Format code" />
+    <MESSAGE value="Update option modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update option modal" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/anvu/bomberman/gui/GamePanel.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/anvu/bomberman/GameRender.java</url>
+          <line>279</line>
+          <properties class="anvu.bomberman.GameRender" method="mouseMoved">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

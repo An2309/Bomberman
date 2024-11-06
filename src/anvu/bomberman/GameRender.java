@@ -104,6 +104,7 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
         while (isMenu) {
             renderScreen();
         }
+        // Start level
         boardRender.changeLevel(1);
         long lastTime = System.nanoTime();
         long timer = System.currentTimeMillis();
@@ -277,8 +278,6 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        // TODO:
-        System.out.println(e.getX() + " " + e.getY());
         Rectangle playButton = new Rectangle(45 * SCALE, 95 * SCALE, 105 * SCALE, 20 * SCALE);
         Rectangle optionButton = new Rectangle(45 * SCALE, 130 * SCALE, 105 * SCALE, 20 * SCALE);
         Rectangle aboutButton = new Rectangle(45 * SCALE, 165 * SCALE, 105 * SCALE, 20 * SCALE);

@@ -12,7 +12,7 @@ public interface CommonVariables {
 
     int BOMB_RATE = 1;
     int BOMB_RADIUS = 1;
-    double PLAYER_SPEED = 0.9;
+    double PLAYER_SPEED = 1.0;
 
     int TIME = 200;
     int POINTS = 0;

@@ -8,7 +8,7 @@ import anvu.bomberman.graphic.Sprite;
 public class Destroyable extends Tile {
     private int animate = 0;
     protected boolean isDestroyed = false;
-    protected int timeToDisappear = 20;
+    protected int timeToDisappear = 20; // 2 seconds
     protected Sprite belowSprite = grass; //default
 
     public Destroyable(int x, int y, Sprite sprite) {
