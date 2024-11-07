@@ -59,7 +59,6 @@ public class BoardRender implements IRender {
         }
     }
 
-
     @Override
     public void render(Screen screen) {
         if (gameRender.isPaused()) return;

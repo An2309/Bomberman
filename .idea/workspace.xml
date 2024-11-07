@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Update UI modal" />
+    <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Update UI modal">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/algorithm/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/algorithm/BFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/level/Level.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,15 +169,6 @@
           <url>file://$PROJECT_DIR$/src/anvu/bomberman/gui/GamePanel.java</url>
           <line>15</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/anvu/bomberman/GameRender.java</url>
-          <line>279</line>
-          <properties class="anvu.bomberman.GameRender" method="mouseMoved">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
