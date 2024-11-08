@@ -8,6 +8,8 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 import anvu.bomberman.graphic.Screen;
@@ -101,47 +103,110 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
     public void start() {
         readHighScore();
         mainAudio.playSound(100);
-        while (isMenu) {
-            renderScreen();
-        }
-        // Start level
+
+        ExecutorService executorService = Executors.newFixedThreadPool(3); // For menu, game, and UI update threads
+        isRunning = true;
+
+        // Menu rendering thread - loops until player starts the game
+        executorService.submit(() -> {
+            while (isMenu) {
+                renderScreen();
+                try {
+                    Thread.sleep(16); // Approx. 60 FPS for menu screen
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        });
+
+        // Wait until player starts the game
+        waitForStart();
+
+        // Once the game starts, begin the game loop and other tasks
         boardRender.changeLevel(1);
-        long lastTime = System.nanoTime();
-        long timer = System.currentTimeMillis();
-        final double ns = 1000000000.0 / 60.0; // nanosecond, 60 frames per second
-        double delta = 0;
         requestFocus();
 
-        while (isRunning) {
-            long now = System.nanoTime();
-            delta += (now - lastTime) / ns;
-            lastTime = now;
-            while (delta >= 1) {
-                update();
-                delta--;
-            }
-            if (!isPaused) {
-                frame.getInfoPanel().setVisible(true);
-            } else {
-                frame.getInfoPanel().setVisible(isSetting || isEndgame || isResetGame);
-            }
-            if (isPaused) {
-                if (screenDelay <= 0) {
-                    boardRender.setShow(5);
-                    isPaused = false;
+        // Game logic and rendering thread
+        executorService.submit(() -> {
+            long lastTime = System.nanoTime();
+            final double ns = 1000000000.0 / 60.0; // 60 updates per second
+            double delta = 0;
+
+            while (isRunning) {
+                long now = System.nanoTime();
+                delta += (now - lastTime) / ns;
+                lastTime = now;
+
+                // Update game state based on delta time
+                while (delta >= 1) {
+                    update();
+                    delta--;
                 }
-                renderScreen();
-            } else {
-                renderGame();
+                if (!isPaused) {
+                    frame.getInfoPanel().setVisible(true);
+                } else {
+                    frame.getInfoPanel().setVisible(isSetting || isEndgame || isResetGame);
+                }
+                // Render either pause screen or game based on pause state
+                if (isPaused) {
+                    if (screenDelay <= 0) {
+                        boardRender.setShow(5);
+                        isPaused = false;
+                    }
+                    renderScreen();
+                } else {
+                    renderGame();
+                }
+
+                try {
+                    Thread.sleep(16); // Approx. 60 FPS
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
             }
-            if (System.currentTimeMillis() - timer > 1000) {
-                frame.setTime(boardRender.subtractTime());
-                frame.setLives(boardRender.getLives());
-                frame.setPoints(boardRender.getPoints());
-                timer += 1000;
-                frame.setTitle(TITLE);
-                if (boardRender.getShow() == 2)
-                    --screenDelay;
+        });
+
+        // UI update thread - updates info panel and other UI elements every second
+        executorService.submit(() -> {
+            long timer = System.currentTimeMillis();
+
+            while (isRunning) {
+                if (System.currentTimeMillis() - timer > 1000) {
+                    frame.setTime(boardRender.subtractTime());
+                    frame.setLives(boardRender.getLives());
+                    frame.setPoints(boardRender.getPoints());
+                    timer += 1000;
+                    frame.setTitle(TITLE);
+
+                    if (boardRender.getShow() == 2) {
+                        --screenDelay;
+                    }
+                }
+
+                try {
+                    Thread.sleep(1000); // Update UI every second
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        });
+
+        // Shutdown the executor service on application close
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            if (!executorService.isShutdown()) {
+                executorService.shutdown();
+            }
+        }));
+    }
+
+    private void waitForStart() {
+        // Wait in a loop until the player chooses to start the game
+        while (isMenu) {
+            // You might replace this with a real check (e.g., button press, key event)
+            try {
+                Thread.sleep(16); // Approx. 60 FPS
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             }
         }
     }
