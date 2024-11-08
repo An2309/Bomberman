@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Update UI modal">
-      <change afterPath="$PROJECT_DIR$/src/anvu/bomberman/jdbc/ConnectJBDC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="add multi-thread and jbdc class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730911048530</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add multi-thread and jbdc class">
+      <option name="closed" value="true" />
+      <created>1731094464533</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1731094464533</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -160,7 +165,8 @@
     <MESSAGE value="Format code" />
     <MESSAGE value="Update option modal" />
     <MESSAGE value="Update UI modal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update UI modal" />
+    <MESSAGE value="add multi-thread and jbdc class" />
+    <option name="LAST_COMMIT_MESSAGE" value="add multi-thread and jbdc class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

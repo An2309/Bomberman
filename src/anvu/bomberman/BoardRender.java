@@ -2,6 +2,8 @@ package anvu.bomberman;
 
 import java.awt.Font;
 import java.awt.Graphics;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -102,16 +104,21 @@ public class BoardRender implements IRender {
     }
 
     public void changeLevel(int level) {
-        time = GameRender.TIME;
-        screenToShow = 2;
-        gameRender.resetScreenDelay();
-        gameRender.pause();
-        mobs.clear();
-        bombs.clear();
-        messages.clear();
-        this.level = new FileLevel("levels/Level" + level + ".txt", this);
-        entities = new Entity[this.level.getHeight() * this.level.getWidth()];
-        this.level.createEntities();
+        try {
+            time = GameRender.TIME;
+            screenToShow = 2;
+            gameRender.resetScreenDelay();
+            gameRender.pause();
+            mobs.clear();
+            bombs.clear();
+            messages.clear();
+            this.level = new FileLevel("levels/Level" + level + ".txt", this);
+            entities = new Entity[this.level.getHeight() * this.level.getWidth()];
+            this.level.createEntities();
+        } catch (Exception e) {
+            endGame();
+        }
+
     }
 
     public void changeLevelByCode(String str) {
