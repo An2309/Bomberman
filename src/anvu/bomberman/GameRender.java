@@ -101,6 +101,7 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
     }
 
     public void start() {
+        readHighScore();
         mainAudio.playSound(100);
 
         ExecutorService executorService = Executors.newFixedThreadPool(3); // For menu, game, and UI update threads

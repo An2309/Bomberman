@@ -7,7 +7,9 @@ public class ConnectJBDC {
     private final String dbName = "bomberman";
     private final String username = "root";
     private final String password = "nmthn@*3B";
+    // jdbc:mysql://localhost:3306/
     private final String connectionURL = "jdbc:mysql://" + hostName + "/";
+    // jdbc:mysql://localhost:3306/bomberman
     private final String dbConnectionURL = connectionURL + dbName;
 
     public Connection connectToDb() {
