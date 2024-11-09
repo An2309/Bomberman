@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Add back to home button">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

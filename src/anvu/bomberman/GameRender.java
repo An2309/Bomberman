@@ -195,16 +195,16 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
     }
 
     public void readHighScore() {
-//        ConnectJBDC connectJBDC = new ConnectJBDC();
-//        Integer newHighScore = connectJBDC.getLastHighScore();
-//        if(newHighScore != null) {
-//            highScore = newHighScore;
-//        }
+        ConnectJBDC connectJBDC = new ConnectJBDC();
+        Integer newHighScore = connectJBDC.getLastHighScore();
+        if(newHighScore != null) {
+            highScore = newHighScore;
+        }
     }
 
     public void saveHighScore() {
-//       ConnectJBDC connectJBDC = new ConnectJBDC();
-//       connectJBDC.addHighScore(highScore);
+       ConnectJBDC connectJBDC = new ConnectJBDC();
+       connectJBDC.addHighScore(highScore);
     }
 
     public void backToMenu() {
@@ -218,12 +218,14 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
         Rectangle optionButton = new Rectangle(45 * SCALE, 130 * SCALE, 105 * SCALE, 20 * SCALE);
         Rectangle aboutButton = new Rectangle(45 * SCALE, 165 * SCALE, 105 * SCALE, 20 * SCALE);
         if (playButton.contains(e.getX(), e.getY()) && isMenu) {
-            isMenu = false;
-            isRunning = true;
-
             // Once the game starts, begin the game loop and other tasks
             boardRender.changeLevel(1);
             requestFocus();
+
+            isMenu = false;
+            isRunning = true;
+
+
         }
         if (optionButton.contains(e.getX(), e.getY()) && isMenu && !isSetting) {
             isSetting = true;
