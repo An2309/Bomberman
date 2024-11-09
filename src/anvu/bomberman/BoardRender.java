@@ -156,15 +156,6 @@ public class BoardRender implements IRender {
         }
     }
 
-    public void backToMenu() {
-        screenToShow = 4;
-        gameRender.setRunning(false);
-        gameRender.setMenu(true);
-        resetProperties();
-        gameRender.setHighScore(0);
-        time = GameRender.TIME;
-    }
-
     public boolean detectNoEnemies() {
         int total = 0;
         for (Character mob : mobs) {

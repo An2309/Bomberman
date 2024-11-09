@@ -22,7 +22,7 @@ public class Info extends JPanel implements CommonVariables {
 
 
     public Info(GameRender gameRender) {
-        setLayout(new GridLayout(1, 9));
+        setLayout(new GridLayout(1, 8));
 
         emptyLabel_1 = new JLabel();
         emptyLabel_2 = new JLabel();
@@ -108,10 +108,12 @@ public class Info extends JPanel implements CommonVariables {
         resetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameRender.getBoard().gamePauseOnReset();
+                if (!gameRender.isPaused()) {
+                    gameRender.getBoard().gamePauseOnReset();
+                }
             }
         });
-        resetLabel.add(resetButton, BorderLayout.WEST);
+        resetLabel.add(resetButton, BorderLayout.EAST);
 
         homeLabel = new JLabel();
         homeLabel.setLayout(new BorderLayout());
@@ -127,14 +129,11 @@ public class Info extends JPanel implements CommonVariables {
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!gameRender.isPaused()) {
-                    gameRender.backToMenu();
-                }
             }
         });
         homeLabel.add(homeButton, BorderLayout.EAST);
 
-        add(homeLabel);
+//        add(homeLabel);
         add(resetLabel);
         add(emptyLabel_1);
         add(timeLabel);
