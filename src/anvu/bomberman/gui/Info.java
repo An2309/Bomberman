@@ -9,8 +9,8 @@ import anvu.bomberman.CommonVariables;
 import anvu.bomberman.GameRender;
 
 public class Info extends JPanel implements CommonVariables {
-    private JLabel emptyLabel_1, emptyLabel_2, timeLabel, pointsLabel, livesLabel, soundLabel, settingLabel, resetLabel;
-    private JButton settingButton, soundButton, resetButton;
+    private JLabel emptyLabel_1, emptyLabel_2, timeLabel, pointsLabel, livesLabel, soundLabel, settingLabel, resetLabel, homeLabel;
+    private JButton settingButton, soundButton, resetButton, homeButton;
     private ImageIcon left_bar = new ImageIcon((new ImageIcon("res/textures/left-bar.png")).getImage().getScaledInstance(80, 30, Image.SCALE_DEFAULT));
     private ImageIcon center_bar = new ImageIcon((new ImageIcon("res/textures/center-bar.png")).getImage().getScaledInstance(80, 30, Image.SCALE_DEFAULT));
     private ImageIcon right_bar = new ImageIcon((new ImageIcon("res/textures/right-bar.png")).getImage().getScaledInstance(80, 30, Image.SCALE_DEFAULT));
@@ -18,9 +18,11 @@ public class Info extends JPanel implements CommonVariables {
     private ImageIcon soundOnImg = new ImageIcon((new ImageIcon("res/textures/sound.png")).getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
     private ImageIcon soundOffImg = new ImageIcon((new ImageIcon("res/textures/mute.png")).getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
     private ImageIcon resetImg = new ImageIcon((new ImageIcon("res/textures/reset.png")).getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+    private ImageIcon homeImg = new ImageIcon((new ImageIcon("res/textures/home.png")).getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+
 
     public Info(GameRender gameRender) {
-        setLayout(new GridLayout(1, 8));
+        setLayout(new GridLayout(1, 9));
 
         emptyLabel_1 = new JLabel();
         emptyLabel_2 = new JLabel();
@@ -82,7 +84,7 @@ public class Info extends JPanel implements CommonVariables {
         settingButton.setIcon(optionImg);
         settingButton.setModel(new FixedStateButtonModel());
         settingButton.setFocusPainted(false);
-        settingButton.setPreferredSize(new Dimension(35, 35));
+        settingButton.setPreferredSize(new Dimension(30, 30));
         settingButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!gameRender.isPaused()) {
@@ -102,15 +104,37 @@ public class Info extends JPanel implements CommonVariables {
         resetButton.setIcon(resetImg);
         resetButton.setModel(new FixedStateButtonModel());
         resetButton.setFocusPainted(false);
-        resetButton.setPreferredSize(new Dimension(35, 35));
+        resetButton.setPreferredSize(new Dimension(30, 30));
         resetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gameRender.getBoard().gamePauseOnReset();
             }
         });
-        resetLabel.add(resetButton, BorderLayout.CENTER);
+        resetLabel.add(resetButton, BorderLayout.WEST);
 
+        homeLabel = new JLabel();
+        homeLabel.setLayout(new BorderLayout());
+
+        homeButton = new JButton();
+        homeButton.setBackground(basicColor);
+        homeButton.setBorder(BorderFactory.createEmptyBorder());
+        homeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        homeButton.setIcon(homeImg);
+        homeButton.setModel(new FixedStateButtonModel());
+        homeButton.setFocusPainted(false);
+        homeButton.setPreferredSize(new Dimension(30, 30));
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!gameRender.isPaused()) {
+                    gameRender.backToMenu();
+                }
+            }
+        });
+        homeLabel.add(homeButton, BorderLayout.EAST);
+
+        add(homeLabel);
         add(resetLabel);
         add(emptyLabel_1);
         add(timeLabel);
@@ -161,6 +185,7 @@ public class Info extends JPanel implements CommonVariables {
         soundButton.setBackground(c);
         settingButton.setBackground(c);
         resetButton.setBackground(c);
+        homeButton.setBackground(c);
     }
 }
 

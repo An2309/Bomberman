@@ -109,80 +109,77 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
 
         // Menu rendering thread - loops until player starts the game
         executorService.submit(() -> {
-            while (isMenu) {
-                renderScreen();
+            while (true) {  // Always loop to allow returning to the menu
+                if (isMenu) {
+                    renderScreen();
+                }
                 try {
-                    Thread.sleep(16); // Approx. 60 FPS for menu screen
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
             }
         });
 
-        // Wait until player starts the game
-        waitForStart();
-
-        // Once the game starts, begin the game loop and other tasks
-        boardRender.changeLevel(1);
-        requestFocus();
 
         // Game logic and rendering thread
         executorService.submit(() -> {
             long lastTime = System.nanoTime();
             final double ns = 1000000000.0 / 60.0; // 60 updates per second
             double delta = 0;
+            while (true) {
+                if (isRunning) {
+                    long now = System.nanoTime();
+                    delta += (now - lastTime) / ns;
+                    lastTime = now;
 
-            while (isRunning) {
-                long now = System.nanoTime();
-                delta += (now - lastTime) / ns;
-                lastTime = now;
-
-                // Update game state based on delta time
-                while (delta >= 1) {
-                    update();
-                    delta--;
-                }
-                if (!isPaused) {
-                    frame.getInfoPanel().setVisible(true);
-                } else {
-                    frame.getInfoPanel().setVisible(isSetting || isEndgame || isResetGame);
-                }
-                // Render either pause screen or game based on pause state
-                if (isPaused) {
-                    if (screenDelay <= 0) {
-                        boardRender.setShow(5);
-                        isPaused = false;
+                    // Update game state based on delta time
+                    while (delta >= 1) {
+                        update();
+                        delta--;
                     }
-                    renderScreen();
-                } else {
-                    renderGame();
+                    if (!isPaused) {
+                        frame.getInfoPanel().setVisible(!isMenu);
+                    } else {
+                        frame.getInfoPanel().setVisible(isSetting || isEndgame || isResetGame);
+                    }
+                    // Render either pause screen or game based on pause state
+                    if (isPaused) {
+                        if (screenDelay <= 0) {
+                            boardRender.setShow(5);
+                            isPaused = false;
+                        }
+                        renderScreen();
+                    } else {
+                        renderGame();
+                    }
                 }
-
                 try {
                     Thread.sleep(16); // Approx. 60 FPS
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
             }
+
         });
 
         // UI update thread - updates info panel and other UI elements every second
         executorService.submit(() -> {
             long timer = System.currentTimeMillis();
+            while (true) {
+                if (isRunning) {
+                    if (System.currentTimeMillis() - timer > 1000) {
+                        frame.setTime(boardRender.subtractTime());
+                        frame.setLives(boardRender.getLives());
+                        frame.setPoints(boardRender.getPoints());
+                        timer += 1000;
+                        frame.setTitle(TITLE);
 
-            while (isRunning) {
-                if (System.currentTimeMillis() - timer > 1000) {
-                    frame.setTime(boardRender.subtractTime());
-                    frame.setLives(boardRender.getLives());
-                    frame.setPoints(boardRender.getPoints());
-                    timer += 1000;
-                    frame.setTitle(TITLE);
-
-                    if (boardRender.getShow() == 2) {
-                        --screenDelay;
+                        if (boardRender.getShow() == 2) {
+                            --screenDelay;
+                        }
                     }
                 }
-
                 try {
                     Thread.sleep(1000); // Update UI every second
                 } catch (InterruptedException e) {
@@ -224,6 +221,11 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
        connectJBDC.addHighScore(highScore);
     }
 
+    public void backToMenu() {
+        boardRender.backToMenu();
+        frame.getInfoPanel().setVisible(false);
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
         Rectangle playButton = new Rectangle(45 * SCALE, 95 * SCALE, 105 * SCALE, 20 * SCALE);
@@ -232,6 +234,10 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
         if (playButton.contains(e.getX(), e.getY()) && isMenu) {
             isMenu = false;
             isRunning = true;
+
+            // Once the game starts, begin the game loop and other tasks
+            boardRender.changeLevel(1);
+            requestFocus();
         }
         if (optionButton.contains(e.getX(), e.getY()) && isMenu && !isSetting) {
             isSetting = true;
@@ -463,6 +469,14 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
 
     public boolean getMenu() {
         return isMenu;
+    }
+
+    public void setMenu(boolean isMenu) {
+        this.isMenu = isMenu;
+    }
+
+    public void setRunning(boolean isRunning) {
+        this.isRunning = isRunning;
     }
 
     public boolean isPaused() {

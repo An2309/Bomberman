@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Fix working JDBC">
+      <change afterPath="$PROJECT_DIR$/res/textures/home.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/jdbc/ConnectJBDC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/jdbc/ConnectJBDC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/anvu/bomberman/gui/Info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +33,12 @@
     &quot;assignee&quot;: &quot;An2309&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/An2309/Bomberman.git",
-    "accountId": "f03fe2d5-531c-4991-a3b0-58352919206c"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/An2309/Bomberman.git&quot;,
+    &quot;accountId&quot;: &quot;f03fe2d5-531c-4991-a3b0-58352919206c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -47,15 +50,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Bomberman.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Fall 2024-2025/JSD/Bomberman"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Bomberman.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Fall 2024-2025/JSD/Bomberman&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Fall 2024-2025\JSD\Bomberman" />
