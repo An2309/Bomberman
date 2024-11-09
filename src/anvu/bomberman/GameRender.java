@@ -105,7 +105,6 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
         mainAudio.playSound(100);
 
         ExecutorService executorService = Executors.newFixedThreadPool(3); // For menu, game, and UI update threads
-        isRunning = true;
 
         // Menu rendering thread - loops until player starts the game
         executorService.submit(() -> {
@@ -114,13 +113,12 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
                     renderScreen();
                 }
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(16);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
             }
         });
-
 
         // Game logic and rendering thread
         executorService.submit(() -> {
@@ -196,29 +194,17 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
         }));
     }
 
-    private void waitForStart() {
-        // Wait in a loop until the player chooses to start the game
-        while (isMenu) {
-            // You might replace this with a real check (e.g., button press, key event)
-            try {
-                Thread.sleep(16); // Approx. 60 FPS
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-    }
-
     public void readHighScore() {
-        ConnectJBDC connectJBDC = new ConnectJBDC();
-        Integer newHighScore = connectJBDC.getLastHighScore();
-        if(newHighScore != null) {
-            highScore = newHighScore;
-        }
+//        ConnectJBDC connectJBDC = new ConnectJBDC();
+//        Integer newHighScore = connectJBDC.getLastHighScore();
+//        if(newHighScore != null) {
+//            highScore = newHighScore;
+//        }
     }
 
     public void saveHighScore() {
-       ConnectJBDC connectJBDC = new ConnectJBDC();
-       connectJBDC.addHighScore(highScore);
+//       ConnectJBDC connectJBDC = new ConnectJBDC();
+//       connectJBDC.addHighScore(highScore);
     }
 
     public void backToMenu() {
