@@ -7,7 +7,6 @@ import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.io.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -16,6 +15,7 @@ import anvu.bomberman.graphic.Screen;
 import anvu.bomberman.gui.CodePanel;
 import anvu.bomberman.gui.Frame;
 import anvu.bomberman.input.Keyboard;
+import anvu.bomberman.jdbc.ConnectJBDC;
 
 public class GameRender extends Canvas implements MouseListener, MouseMotionListener, CommonVariables {
     public static final int TILES_SIZE = 16,
@@ -101,7 +101,6 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
     }
 
     public void start() {
-        readHighScore();
         mainAudio.playSound(100);
 
         ExecutorService executorService = Executors.newFixedThreadPool(3); // For menu, game, and UI update threads
@@ -212,27 +211,16 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
     }
 
     public void readHighScore() {
-        BufferedReader read;
-        try {
-            read = new BufferedReader(new FileReader(new File("res/data/BestScore.txt")));
-            String score = read.readLine().trim();
-            highScore = Integer.parseInt(score);
-            read.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        ConnectJBDC connectJBDC = new ConnectJBDC();
+        Integer newHighScore = connectJBDC.getLastHighScore();
+        if(newHighScore != null) {
+            highScore = newHighScore;
         }
     }
 
     public void saveHighScore() {
-        try {
-            File file = new File("res/data/BestScore.txt");
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(String.valueOf(highScore));
-            fileWriter.flush();
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+       ConnectJBDC connectJBDC = new ConnectJBDC();
+       connectJBDC.addHighScore(highScore);
     }
 
     @Override

@@ -3,17 +3,18 @@ package anvu.bomberman.jdbc;
 import java.sql.*;
 
 public class ConnectJBDC {
-    private final String hostName = "localhost:8084";
+    private final String hostName = "localhost:3306";
     private final String dbName = "bomberman";
     private final String username = "root";
-    private final String password = "123456aA@";
+    private final String password = "nmthn@*3B";
     private final String connectionURL = "jdbc:mysql://" + hostName + "/";
     private final String dbConnectionURL = connectionURL + dbName;
 
     public Connection connectToDb() {
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection(connectionURL + "mysql", username, password);
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+            connection = DriverManager.getConnection(connectionURL, username, password);
             if (!databaseExists(connection, dbName)) {
                 createDatabase(connection, dbName);
             }
