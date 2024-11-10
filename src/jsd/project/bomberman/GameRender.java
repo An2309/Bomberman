@@ -15,6 +15,7 @@ import jsd.project.bomberman.graphic.Screen;
 import jsd.project.bomberman.gui.CodePanel;
 import jsd.project.bomberman.gui.Frame;
 import jsd.project.bomberman.input.Keyboard;
+import jsd.project.bomberman.jdbc.ConnectJBDC;
 
 public class GameRender extends Canvas implements MouseListener, MouseMotionListener, CommonVariables {
     public static final int TILES_SIZE = 16,
@@ -205,16 +206,16 @@ public class GameRender extends Canvas implements MouseListener, MouseMotionList
     }
 
     public void readHighScore() {
-//        ConnectJBDC connectJBDC = new ConnectJBDC();
-//        Integer newHighScore = connectJBDC.getLastHighScore();
-//        if(newHighScore != null) {
-//            highScore = newHighScore;
-//        }
+        ConnectJBDC connectJBDC = new ConnectJBDC();
+        Integer newHighScore = connectJBDC.getLastHighScore();
+        if(newHighScore != null) {
+            highScore = newHighScore;
+        }
     }
 
     public void saveHighScore() {
-//       ConnectJBDC connectJBDC = new ConnectJBDC();
-//       connectJBDC.addHighScore(highScore);
+       ConnectJBDC connectJBDC = new ConnectJBDC();
+       connectJBDC.addHighScore(highScore);
     }
 
 

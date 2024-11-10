@@ -4,58 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Add back to home button">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/BoardRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/BoardRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/Bomberman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/Bomberman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/CommonVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/CommonVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/GameRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/GameRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/audio/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/audio/Audio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/AnimatedEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/AnimatedEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/LayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/LayerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/bomb/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/bomb/DirectionalExplosion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/bomb/DirectionalExplosion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/bomb/Explosion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/bomb/Explosion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/Balloom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/Balloom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/Doll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/Doll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/Kondoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/Kondoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/Minvo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/Minvo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/Oneal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/Oneal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/algorithm/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/algorithm/Algorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/algorithm/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/algorithm/BFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/algorithm/HighAlgo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/algorithm/HighAlgo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/algorithm/MediumAlgo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/algorithm/MediumAlgo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/algorithm/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/algorithm/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/character/enemy/algorithm/SimpleAlgo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/character/enemy/algorithm/SimpleAlgo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/Portal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/tile/Portal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/Surface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/tile/Surface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/tile/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/tile/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/destroyable/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/tile/destroyable/Brick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/destroyable/Destroyable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/tile/destroyable/Destroyable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/power/Power.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/tile/power/Power.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/power/PowerBombs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/tile/power/PowerBombs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/power/PowerFlames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/tile/power/PowerFlames.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/entities/tile/power/PowerSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/entities/tile/power/PowerSpeed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/graphic/IRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/graphic/IRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/graphic/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/graphic/Screen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/graphic/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/graphic/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/graphic/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/graphic/SpriteSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/CodePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/gui/CodePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/gui/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/gui/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/gui/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/gui/Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/input/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/input/Keyboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/jdbc/ConnectJBDC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/jdbc/ConnectJBDC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/level/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/level/Coordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/level/FileLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/level/FileLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/level/ILevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/level/ILevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/anvu/bomberman/level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsd/bomberman/level/Level.java" afterDir="false" />
+    <list default="true" id="25c1b5aa-c295-4011-b611-6f0b54777ddf" name="Changes" comment="Refactor package">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +48,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Bomberman.executor&quot;: &quot;Run&quot;,
+    &quot;Application.jsd.project.bomberman.Bomberman.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -112,11 +63,11 @@
   </component>
   <component name="RunManager">
     <configuration name="Bomberman" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="anvu.bomberman.Bomberman" />
+      <option name="MAIN_CLASS_NAME" value="jsd.project.bomberman.Bomberman" />
       <module name="Bomberman" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="anvu.bomberman.*" />
+          <option name="PATTERN" value="jsd.project.bomberman.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -227,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731178373158</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Refactor package">
+      <option name="closed" value="true" />
+      <created>1731213829777</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731213829777</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -241,13 +200,14 @@
     <MESSAGE value="add multi-thread and jbdc class" />
     <MESSAGE value="Fix working JDBC" />
     <MESSAGE value="Add back to home button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add back to home button" />
+    <MESSAGE value="Refactor package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/jsd/bomberman/gui/GamePanel.java</url>
+          <url>file://$PROJECT_DIR$/src/jsd/project/bomberman/gui/GamePanel.java</url>
           <line>15</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
